@@ -6,14 +6,15 @@ private:
           double gpa; 
 	
 public:
-    student(long=111 ,double=2.5,string="Nattawut");
+    student(long=111 ,double=2.5,string="Nattawut",long=1234);
     ~student();
     void display(); // display_person
    
 };
 
-student::student(long i, double g,string s){
+student::student(long i, double g,string s,long nid):MU_person(i,s,nid){
 // Finish constructor to set all values
+        gpa = g;
          cout<<"MU student constructor  "<<gpa<<endl;
          
   
@@ -25,5 +26,7 @@ student::~student(){
 
 
 void student::display(){
-  //Finish Display function
+  display_person();
+  cout<<"GPA : "<<gpa<<endl;
+
 }

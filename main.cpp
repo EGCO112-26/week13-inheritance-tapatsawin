@@ -2,13 +2,14 @@
 using namespace std;
 #include "student.h"
 
+
 int main(){
-MU_Person m;
+  MU_person m;
+  m.display_person();
  
-	//student m1(6613121,2,"Vivi"),m2(112),m3;
- // student m1(6613118,3.9,"Atom");
-//student m2(6613112),m3,*p;
-  //m1.display(); // id gpa name
+  student m1(6813105,3.5,"Act"),m2(6813115),m3;
+  m1.display(); // id gpa name
+  m1.display_person();
   cout<<endl<<"======="<<endl;
   //m1.display_person(); //id
 
