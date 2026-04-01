@@ -17,17 +17,17 @@ public:
 };
 
 // ส่งต่อ id ให้กับ constructor ของ NODE และ nid ให้กับ Thai_person
-MU_person::MU_person(long x, string n, long nid) : Thai_person(nid), NODE(x) {
+inline MU_person::MU_person(long x, string n, long nid) : Thai_person(nid), NODE(x) {
     id = x;
     name = n;
     cout << "MU person constructor " << id << endl;
 }
 
-MU_person::~MU_person() {
+inline MU_person::~MU_person() {
     // cout<<"Destructor id="<<id<<endl;
 }
 
-void MU_person::display_person() {
+inline void MU_person::display_person() {
     display_thai(); // แสดงข้อมูลจาก Thai_person
     cout << "id: " << id << endl << "name: " << name << endl;
 }
