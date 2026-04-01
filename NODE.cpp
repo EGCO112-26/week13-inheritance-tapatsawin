@@ -1,6 +1,8 @@
+#include <iostream>
 #include "NODE.h"
+using namespace std;
 
-NODE::NODE(long x) {
+NODE::NODE(int x) {
     data = x;
     next = NULL;
     cout << "adding " << x << endl;
@@ -19,5 +21,5 @@ void NODE::show_node() {
 }
 
 void NODE::insert(NODE*& x) {
-    x->next = this;
+    next = x;  // เปลี่ยนจาก x->next = this; เป็น next = x;
 }

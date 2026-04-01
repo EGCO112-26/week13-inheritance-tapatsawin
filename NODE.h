@@ -1,14 +1,16 @@
-#pragma once
-#include <iostream>
-using namespace std;
+#ifndef NODE_H
+#define NODE_H
 
 class NODE {
-    long data; // เปลี่ยนเป็น long เพื่อรองรับ id ของ mu_person
+protected:
+    int data;
     NODE* next;
 public:
-    NODE(long);
-    virtual void show_node(); // ใช้ virtual เพื่อให้เรียก display() ของ student ได้
+    NODE(int);
+    virtual void show_node();
     void insert(NODE*&);
     NODE* move_next();
-    virtual ~NODE(); 
+    virtual ~NODE(); // ทำเป็น virtual destructor
 };
+
+#endif

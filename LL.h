@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LL_H
+#define LL_H
 #include "NODE.h"
 
 class LL {
@@ -10,3 +11,4 @@ public:
     ~LL();
     LL();
 };
+#endif

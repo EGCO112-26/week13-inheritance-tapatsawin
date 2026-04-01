@@ -1,4 +1,6 @@
-#pragma once
+#ifndef THAI_PERSON_H
+#define THAI_PERSON_H
+
 #include <iostream>
 using namespace std;
 
@@ -8,19 +10,20 @@ private:
 public: 
     Thai_person(long = 0);
     ~Thai_person();
-    void display_thai(); // สร้างฟังก์ชัน display_thai
+    void display_thai();
 };
 
-inline Thai_person::Thai_person(long nid) {
-    nat_id=nid;
-    // cout<<"nat_id: "<<nat_id<<endl;
-    // cout<<"MU Student Constructor: "<<nat_id<<endl;
+Thai_person::Thai_person(long nid) {
+    nat_id = nid;
+    // ละการแสดงผลไว้เพื่อให้ output ตรงกับตัวอย่าง
 }
 
-inline Thai_person::~Thai_person() {
-    cout << "Thai_person Destructor nat_id: " << nat_id << endl;
+Thai_person::~Thai_person() {
+    // Destructor ของ Thai_person
 }
 
-inline void Thai_person::display_thai() {
+void Thai_person::display_thai() {
     cout << "Nat_id: " << nat_id << endl;
 }
+
+#endif
