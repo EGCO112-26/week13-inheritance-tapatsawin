@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include "student.h"
 #include "LL.h"
 using namespace std;
@@ -8,7 +9,7 @@ int main(int argc, char *argv[]) {
     LL A;
     NODE *t;
 
-    // ขยับทีละ 3 เพื่อรับ (id, gpa, name)
+    // ต้องขยับทีละ 3 เพราะข้อมูลมาเป็นชุด (id, gpa, name)
     for(int i = 1; i < argc; i += 3) {
         long id = atol(argv[i]);
         double gpa = atof(argv[i+1]);
@@ -18,10 +19,6 @@ int main(int argc, char *argv[]) {
         A.add_node(t);
     }
     
-    // พิมพ์ช่องว่างให้ตรงกับแพทเทิร์นในโจทย์
-    cout << "         \n\n ";
     A.show_all();
-    cout << " \n\n";
-    
     return 0;
 }

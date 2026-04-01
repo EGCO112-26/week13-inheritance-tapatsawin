@@ -14,17 +14,17 @@ public:
     void show_node(); // Override เพื่อเชื่อมไป LL ได้สมบูรณ์
 };
 
-student::student(long i, double g, string s, long nid) : MU_person(i, s, nid) {
+inline student::student(long i, double g, string s, long nid) : MU_person(i, s, nid) {
     gpa = g;
     cout << "MU student constructor  " << gpa << endl;
 }
 
-student::~student() {
+inline student::~student() {
     // cout<<"-------"<<endl;
     // cout<<"student destructor "<<gpa<<endl; 
 }
 
-void student::display() {
+inline void student::display() {
     display_person();
     cout << "GPA : " << gpa << endl;
 }
