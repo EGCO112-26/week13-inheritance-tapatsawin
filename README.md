@@ -1,1 +1,25 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23376028)
+#include <iostream>
+using namespace std;
+#include "NODE.h"
+
+NODE::NODE(long x){
+    data = x;
+    next = NULL;
+    cout << "adding " << x << endl;
+}
+
+NODE::~NODE(){
+    cout << "Node " << data << " is being deleted" << endl;
+}
+
+NODE* NODE::move_next(){
+    return next;
+}
+
+void NODE::show_node(){
+    cout << "Node data:" << data << endl;
+}
+
+void NODE::insert(NODE*& x){
+    x->next = this;
+}

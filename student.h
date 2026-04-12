@@ -1,31 +1,23 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+#ifndef NODE_H
+#define NODE_H
 
-#include "MU_Person.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
-class student : public MU_person {
+class NODE{
+protected:
+      long data;
 private:
-    double gpa;  
-
+      NODE* next;
 public:
-    student(long = 111, double = 2.5, string = "Nattawut", long = 1234);
-    ~student();
-    void display();
-};
-
-student::student(long i, double g, string s, long nid) : MU_person(i, s, nid) {
-    gpa = g;
-    cout << "MU student constructor  " << gpa << endl;
-}
-
-student::~student() {
-    // Destructor (ละการพิมพ์ไว้เพื่อให้ตรงกับตัวอย่าง output)
-}
-
-void student::display() {
-    display_person();
-    cout << "GPA : " << gpa << endl;
-}
+        NODE(long);
+      
+      void show_node();
+        void insert(NODE*&);
+        NODE* move_next();
+     
+  ~NODE();
+      };
 
 #endif

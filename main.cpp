@@ -1,24 +1,26 @@
 #include <iostream>
-using namespace std;
+#include <cstdlib>
+#include <string>
+#include "LL.h"
 #include "student.h"
+using namespace std;
 
-int main() {
-    cout << "--- Test MU_person ---" << endl;
-    MU_person m;
-    m.display_person();
-    
-    cout << endl << "--- Test student ---" << endl;
-    student m1(6813105, 3.5, "Act"), m2(6813115), m3;
-    
-    // m1.display() จะแสดงทั้ง id, name และ gpa 
-    // เพราะข้างใน display() มีการเรียก display_person() ไว้แล้ว
-    m1.display(); 
-    
-    cout << endl << "=======" << endl;
+int main(int argc, char *argv[])
+{
+    LL A;
+    // argv: id1 gpa1 name1  id2 gpa2 name2 ...
+    for(int i = 1; i + 2 < argc; i += 3){
+        long   id  = atol(argv[i]);
+        double gpa = atof(argv[i+1]);
+        string name = argv[i+2];
 
-    // การทดสอบ Pointer และ Destructor
-    student* p = new student(6613265, 1.7, "Hok");
-    delete p;
-  
+        NODE* s = new student(id, gpa, name);
+        A.add_node(s);
+    }
+
+    cout << endl;
+    A.show_all();
+    cout << endl;
+
     return 0;
 }

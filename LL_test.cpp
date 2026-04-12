@@ -1,29 +1,38 @@
 #include <iostream>
-#include <cstdlib>
-#include "student.h"
+#include "NODE.h"
 #include "LL.h"
 using namespace std;
 
-int main(int argc, char *argv[]) {  
-    LL A;
-    NODE *t;
+LL::LL(){
+    hol = NULL;
+    size = 0;
+}
 
-    // ทำการ Loop ข้ามทีละ 3 ค่า เพราะข้อมูลมาเป็นชุด: id gpa name
-    for(int i = 1; i < argc; i += 3) {
-        if (i + 2 < argc) { // เช็คว่า arg มีครบ 3 ตัวหรือไม่
-            long id = atol(argv[i]);
-            double gpa = atof(argv[i+1]);
-            string name = argv[i+2];
-            
-            // สร้าง student และส่งค่าไป Constructor (ค่า nid จะอิงจาก default)
-            t = new student(id, gpa, name);
-            A.add_node(t);
-        }
+LL::~LL(){
+    // clear all nodes
+    NODE* t = hol;
+    NODE* tmp;
+    int i;
+    for(i = 0; i < size; i++){
+        tmp = t->move_next();
+        delete t;
+        t = tmp;
     }
-    
-    cout << endl << "\t" << endl;
-    A.show_all();
-    cout << endl;
-    
-    return 0;
+}
+
+void LL::show_all(){
+    NODE* t = hol;
+    int i;
+    for(i = 0; i < size; i++){
+        t->show_node();
+        t = t->move_next();
+    }
+}
+
+void LL::add_node(NODE* A){
+    if(hol != NULL){
+        hol->insert(A);  // A->next = hol (current head)
+    }
+    hol = A;
+    size++;
 }

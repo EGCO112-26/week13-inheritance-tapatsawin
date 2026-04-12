@@ -1,16 +1,30 @@
-#ifndef NODE_H
-#define NODE_H
 
-class NODE {
-protected:
-    int data;
-    NODE* next;
+#ifndef MU_PERSON_H
+#define MU_PERSON_H
+
+#include "Thai_person.h"
+#include "NODE.h"
+
+class MU_person : public NODE, public Thai_person {
+private:
+	string name;
 public:
-    NODE(int);
-    virtual void show_node();
-    void insert(NODE*&);
-    NODE* move_next();
-    virtual ~NODE(); // ทำเป็น virtual destructor
+	MU_person(long=112, string="Prapaporn", long=0);
+	void display_person();
+	~MU_person();
 };
+
+MU_person::~MU_person(){
+}
+
+MU_person::MU_person(long x, string n, long nat) : NODE(x), Thai_person(nat) {
+	name = n;
+	cout << "MU person constructor " << data << endl;
+}
+
+void MU_person::display_person(){
+	display_thai();
+	cout << "id=" << data << " name=" << name << endl;
+}
 
 #endif

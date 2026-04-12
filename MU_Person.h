@@ -1,39 +1,26 @@
-#ifndef MU_PERSON_H
-#define MU_PERSON_H
-
 #include <iostream>
-#include <string>
-#include "NODE.h"
-#include "Thai_person.h"
 using namespace std;
+#include "student.h"
+#include "LL.h"
+#include <cstdlib>
 
-// สืบทอดแบบ Multiple Inheritance
-class MU_person : public NODE, public Thai_person {
-protected:
-    long id;
-    string name; 
+int main(int argc, char *argv[]){
+    LL A;
 
-public:
-    MU_person(long = 112, string = "Prapaporn", long = 1234);
-    virtual ~MU_person();
-    void display_person();
-};
+    // argv: id1 gpa1 name1  id2 gpa2 name2 ...
+    for(int i = 1; i + 2 < argc; i += 3){
+        long   id  = atol(argv[i]);
+        double gpa = atof(argv[i+1]);
+        string name = argv[i+2];
 
-// นำ x ส่งให้ NODE(x) และ nid ส่งให้ Thai_person(nid)
-MU_person::MU_person(long x, string n, long nid) : NODE(x), Thai_person(nid) {
-    id = x;
-    name = n;
-    cout << "MU person constructor " << id << endl;
+        NODE* s = new student(id, gpa, name);
+        A.add_node(s);
+    }
+
+    cout << endl;
+    A.show_all();
+    cout << endl;
+
+    return 0;
 }
 
-MU_person::~MU_person() {
-    // Destructor (ละการพิมพ์ไว้เพื่อให้ตรงกับตัวอย่าง output)
-}
-
-void MU_person::display_person() {
-    cout << "show info" << endl;
-    display_thai(); // เรียกใช้เมธอดจาก Thai_person
-    cout << "id: " << id << endl << "name: " << name << endl;
-}
-
-#endif

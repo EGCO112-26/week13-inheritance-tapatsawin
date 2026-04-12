@@ -1,25 +1,2 @@
-#include <iostream>
-#include "NODE.h"
-using namespace std;
-
-NODE::NODE(int x) {
-    data = x;
-    next = NULL;
-    cout << "adding " << x << endl;
-}
-
-NODE::~NODE() {
-    cout << "Node " << data << " is being deleted" << endl;
-}
-
-NODE* NODE::move_next() {
-    return next;
-}
-
-void NODE::show_node() {
-    cout << "Node data:" << data << endl;
-}
-
-void NODE::insert(NODE*& x) {
-    next = x;  // เปลี่ยนจาก x->next = this; เป็น next = x;
-}
+target: Thai_person.h MU_Person.h student.h NODE.h NODE.cpp LL.h LL.cpp main.cpp
+	g++ main.cpp NODE.cpp LL.cpp -o inh
